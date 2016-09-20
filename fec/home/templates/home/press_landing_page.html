@@ -5,6 +5,7 @@
 {% block body_class %}template-{{ self.get_verbose_name | slugify }}{% endblock %}
 
 {% block content %}
+{% if request.user.is_authenticated or features.latest_updates %}
 <section class="hero hero--secondary hero--press" aria-labelledby="hero-heading">
   <div class="hero__image"></div>
   <div class="container">
@@ -89,5 +90,7 @@
   </div>
   {% include 'partials/disclaimer.html' %}
 </div>
-
+{% else %}
+  {% include 'partials/404.html' %}
+{% endif %}
 {% endblock %}
