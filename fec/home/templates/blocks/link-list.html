@@ -1,0 +1,7 @@
+{% load wagtailcore_tags %}
+
+<ul class="list--more-columns list--bulleted">
+  {% for block in self %}
+    <li><a class="t-sans"  href="{{ block.url }}">{{ block.text }}</a></li>
+  {% endfor %}
+</ul>

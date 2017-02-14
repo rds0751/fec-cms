@@ -3,6 +3,10 @@ from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.contrib.table_block.blocks import TableBlock
 
+class LinkBlock(blocks.StructBlock):
+    """Creates a URL + Text block that can be used by other blocks"""
+    url = blocks.URLBlock(required=False)
+    text = blocks.CharBlock(required=False)
 
 class ThumbnailBlock(blocks.StructBlock):
     """A block that combines a thumbnail and a caption,
@@ -104,6 +108,7 @@ class ResourceBlock(blocks.StructBlock):
         ('document_list', blocks.ListBlock(FeedDocumentBlock(), template='blocks/document-list.html', icon='doc-empty')),
         ('current_commissioners', CurrentCommissionersBlock()),
         ('table', TableBlock()),
+        ('link_list', blocks.ListBlock(LinkBlock(), template='blocks/link-list.html', icon='list-ul'))
     ])
 
     aside = blocks.StreamBlock([
