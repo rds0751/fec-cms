@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% block body_class %}template-{{ self.get_verbose_name | slugify }}{% endblock %}
+
+{% block content %}
+
+{% include 'partials/breadcrumbs.html' with page=self links=self.get_ancestors style='primary' %}
+
+<article class="main container">
+  <header class="heading--main">
+    <h1>Enforcement matters</h1>
+  </header>
+  <div class="content__section">
+    <p>
+      The FEC has exclusive jurisdiction over the civil enforcement of the federal campaign finance law.
+      The FEC learns of possible violations through a number of sources including:
+    </p>
+  </div>
+  <div class="row" id="section-container">
+    <div class="sidebar-container sidebar-container--left">
+      <div class="js-sticky-side" data-sticky-container="section-container">
+        <nav class="sidebar sidebar--neutral sidebar--left side-nav js-toc">
+          <ul class="sidebar__content">
+            <li class="side-nav__item"><a class="side-nav__link" href="#overview">Overview</a></li>
+            <li class="side-nav__item"><a class="side-nav__link" href="#murs">MURs</a></li>
+            <li class="side-nav__item"><a class="side-nav__link" href="#administrative-fines">Administrative Fines</a></li>
+            <li class="side-nav__item"><a class="side-nav__link" href="#adr">Alternative Dispute Resolution</a></li>
+            <li class="side-nav__item"><a class="side-nav__link" href="#audits">Audits</a></li>
+            <li class="side-nav__item"><a class="side-nav__link" href="#complaints">Complaints</a></li>
+            <li class="side-nav__item"><a class="side-nav__link" href="#legal-citations">Legal citations</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="main__content--right">
+      <section id="overview" class="option option--no-top-border">
+        <ol class="list--numbered">
+          <li>Internal referrals, which result from the FEC’s routine review of committee reports and audits of political committees.</li>
+          <li>Sworn complaints filed with the FEC by anyone alleging that a violation has occurred or is about to occur.</li>
+          <li>Referrals to the FEC from other government agencies of possible campaign finance violations.</li>
+          <li>Self reported submissions to the FEC by any person or entity that believes it may have  committed a campaign finance violation.</li>
+        </ol>
+      </section>
+      <section id="murs" class="option">
+        <h3>Matters Under Review (MURs)</h3>
+        <p>
+          FEC enforcement matters (called MURs) must, by law, remain confidential until they are closed.
+          Law requires the Commission to try to resolve enforcement matters through conciliation.
+          If the Commission fails to reach a conciliation agreement with a respondent, the Commission may choose
+          to pursue the matter in federal court.
+        </p>
+        <div class="u-no-print">
+          <div class="slab slab--neutral slab--inline">
+            <div class="container">
+              <div class="row">
+                <div class="usa-width-one-whole">
+                  <form action="{{ settings.FEC_APP_URL }}/legal/search/enforcement" autocomplete="off" class="search__container">
+                    <label for="search-input" class="label">Search closed MURs</label>
+                    <div class="combo combo--search--medium combo--search--inline">
+                      <input id="search-input" type="text" name="search" class="combo__input">
+                      <input id="search-type" type="hidden" name="search_type" value="murs">
+                      <button class="combo__button button--search button--standard" type="submit">
+                        <span class="u-visually-hidden">Search</span>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="row">
+                <div class="usa-width-one-whole">
+                  <p class="t-note t-sans search__example">Examples: filings; 2405</p>
+                </div>
+              </div>
+              <p><i class="icon icon--inline--left i-bang-circle"></i>Results don't include most of the cases closed between 1975 and 1998. Search those cases on <a href="http://www.fec.gov/MUR/">FEC.gov.</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="audits" class="option">
+        <h3><a href="/legal-resources/enforcement/audit-reports">Audit reports</a></h3>
+        <p>Learn about how the commission audits committees and look up audit reports.</p>
+      </section>
+      <section id="complaints" class="option">
+          <h3><a href="/legal-resources/enforcement/complaints-process/">Complaints</a></h3>
+          <p>Learn how complaints are filed, processed and made public.</p>
+        </section>
+      <section id="administrative-fines" class="option">
+        <h3><a href="/legal-resources/enforcement/administrative-fines/">Administrative Fines</a></h3>
+        <p>The Administrative Fine Program assesses civil money penalties for late and non-filed reports.</p>
+      </section>
+      <section id="adr" class="option">
+        <h3><a href="/legal-resources/enforcement/alternative-dispute-resolution/">Alternative Dispute Resolution</a></h3>
+        <p>Alternative Dispute Resolution is a series of procedures for resolving enforcement disputes through the mutual consent the parties involved.</p>
+      </section>
+      <aside id="legal-citations" class="sidebar sidebar--primary">
+        <h4 class="sidebar__title">Legal citations</h4>
+        <div class="sidebar__content">
+          <p>
+            <span>11 CFR&nbsp;</span><a href="/regulations/111-20/CURRENT">111.20</a>
+            <br><i>Public disclosure of Commission action</i>
+          </p>
+          <p>
+            <span>11 CFR&nbsp;</span><a href="/regulations/111-21/CURRENT">111.21</a>
+            <br><i>Confidentiality</i>
+          </p>
+          <p>
+            <span>11 CFR&nbsp;</span><a href="/regulations/111-22/CURRENT">111.22</a>
+            <br><i>Ex parte communications</i>
+          </p>
+          <p>
+            <span>11 CFR&nbsp;</span><a href="/regulations/111-23/CURRENT">111.23</a>
+            <br><i>Representation by counsel; notification</i>
+          </p>
+          <p>
+            <span>11 CFR&nbsp;</span><a href="/regulations/111-24/CURRENT">111.24</a>
+            <br><i>Civil penalties</i>
+          </p>
+          <p>
+            <span>11 CFR&nbsp;</span><a href="/regulations/111-31/CURRENT">111.31</a>
+            <br><i>Administrative fines</i>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</article>
+{% endblock %}

@@ -655,7 +655,7 @@ class LegalResourcesLandingPage(ContentPage, UniqueModel):
 class EnforcementPage(ContentPage, UniqueModel):
     parent_page_types = ['LegalResourcesLandingPage']
     subpage_types = ['ResourcePage']
-    template = 'home/legal/enforcement.html'
+    template = 'home/legal/enforcement-new.html'
     @property
     def content_section(self):
         return 'legal-resources'
