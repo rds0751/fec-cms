@@ -248,3 +248,8 @@ WAGTAIL_FRONTEND_LOGIN_URL = 'uaa_client:login'
 AUTHENTICATION_BACKENDS = \
     ['django.contrib.auth.backends.ModelBackend',
      'uaa_client.authentication.UaaBackend']
+
+# FOR TESTING ON DEV will move to prod
+WAGTAILADMIN_NOTIFICATION_FROM_EMAIL = env.get_credential('FEC_EMAIL_SENDER')
+WAGTAILADMIN_NOTIFICATION_FROM_EMAIL = env.get_credential('FEC_EMAIL_SENDER')
+WAGTAILADMIN_NOTIFICATION_USE_HTML = True
