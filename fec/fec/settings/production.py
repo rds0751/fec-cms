@@ -21,6 +21,11 @@ LOGGING = {
         'console': {
             'class': 'logging.StreamHandler',
         },
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
     },
     'loggers': {
         'django': {
@@ -33,7 +38,6 @@ LOGGING = {
 WAGTAILADMIN_NOTIFICATION_FROM_EMAIL = env.get_credential('FEC_EMAIL_SENDER')
 WAGTAILADMIN_NOTIFICATION_FROM_EMAIL = env.get_credential('FEC_EMAIL_SENDER')
 WAGTAILADMIN_NOTIFICATION_USE_HTML = True
-
 
 try:
     from .local import *  # noqa

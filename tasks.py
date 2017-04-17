@@ -77,6 +77,7 @@ DEPLOY_RULES = (
     # ('dev', lambda _, branch: branch == 'develop'),
     # trying this out
     ('dev', lambda _, branch: branch == 'feature/use-email'),
+
 )
 
 

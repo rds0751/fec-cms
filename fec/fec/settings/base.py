@@ -77,6 +77,10 @@ MIDDLEWARE_CLASSES = (
 
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+
+    # logs
+    'audit_log.middleware.UserLoggingMiddleware',
+
 )
 
 ROOT_URLCONF = 'fec.urls'
@@ -249,7 +253,37 @@ AUTHENTICATION_BACKENDS = \
     ['django.contrib.auth.backends.ModelBackend',
      'uaa_client.authentication.UaaBackend']
 
+
 # FOR TESTING ON DEV will move to prod
 WAGTAILADMIN_NOTIFICATION_FROM_EMAIL = env.get_credential('FEC_EMAIL_SENDER')
 WAGTAILADMIN_NOTIFICATION_FROM_EMAIL = env.get_credential('FEC_EMAIL_SENDER')
 WAGTAILADMIN_NOTIFICATION_USE_HTML = True
+
+DEFAULT_AUTHENTICATION_CLASSES = ['rest_framework_jwt.authentication.JSONWebTokenAuthentication',]
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+    },
+}
+
