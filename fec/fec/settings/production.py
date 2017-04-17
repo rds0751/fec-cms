@@ -30,6 +30,10 @@ LOGGING = {
     },
 }
 
+WAGTAILADMIN_NOTIFICATION_FROM_EMAIL = env.get_credential('FEC_EMAIL_SENDER')
+WAGTAILADMIN_NOTIFICATION_FROM_EMAIL = env.get_credential('FEC_EMAIL_SENDER')
+WAGTAILADMIN_NOTIFICATION_USE_HTML = True
+
 
 try:
     from .local import *  # noqa
