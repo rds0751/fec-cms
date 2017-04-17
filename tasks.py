@@ -76,7 +76,7 @@ DEPLOY_RULES = (
     ('stage', lambda _, branch: branch.startswith('release')),
     # ('dev', lambda _, branch: branch == 'develop'),
     # trying this out
-    ('dev', lambda _, branch: branch == 'feature/use-email')),
+    ('dev', lambda _, branch: branch == 'feature/use-email'),
 )
 
 
