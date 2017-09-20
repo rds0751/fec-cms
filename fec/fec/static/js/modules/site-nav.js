@@ -20,8 +20,6 @@ require('accessible-mega-menu');
 var today = new Date();
 
 var defaultOpts = {
-  cmsUrl: 'http://localhost:8000',
-  transitionUrl: 'https://transition.fec.gov',
   cycle: 2016,
   today: moment(today).format('MM/DD/YYYY'),
   tomorrow: moment(today).add(1, 'day').format('MM/DD/YYYY')

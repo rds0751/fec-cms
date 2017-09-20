@@ -52,11 +52,7 @@ $(document).ready(function() {
   });
 
   new skipNav.Skipnav('.skip-nav', 'main');
-  new siteNav.SiteNav('.js-site-nav', {
-    cmsUrl: '',
-    webAppUrl: window.FEC_APP_URL,
-    transitionUrl: window.TRANSITION_URL
-  });
+  new siteNav.SiteNav('.js-site-nav');
 
   // Initialize table of contents
   new toc.TOC('.js-toc');

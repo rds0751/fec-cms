@@ -44,10 +44,7 @@ $(document).ready(function() {
   });
 
   $('.js-site-nav').each(function() {
-    new siteNav.SiteNav(this, {
-      cmsUrl: CMS_URL,
-      webAppUrl: BASE_PATH,
-    });
+    new siteNav.SiteNav(this);
   });
 
   new skipNav.Skipnav('.skip-nav', 'main');
