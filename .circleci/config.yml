@@ -82,6 +82,8 @@ jobs:
             [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
             . venv/bin/activate
             nvm use default
+            ./manage.py compress -f
+            cd ..
             cd fec
             webpack
             DJANGO_SETTINGS_MODULE=fec.settings.production python manage.py collectstatic --noinput -v 0
