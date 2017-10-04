@@ -102,7 +102,7 @@ def deploy(ctx, space=None, branch=None, login=None, yes=False):
         echo=True
     )
     ctx.run(
-        'cd fec && DJANGO_SETTINGS_MODULE=fec.settings.production python manage.py compress -f -v 0',
+        'cd fec && DJANGO_SETTINGS_MODULE=fec.settings.production python manage.py compress -f',
         echo=True
     )
 
