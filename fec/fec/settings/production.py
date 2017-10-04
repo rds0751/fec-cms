@@ -12,7 +12,7 @@ TEMPLATE_DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 COMPRESS_ENABLED = False
-COMPRESS_OFFLINE = True
+COMPRESS_OFFLINE = False
 
 try:
     from .local import *  # noqa
