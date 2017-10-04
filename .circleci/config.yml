@@ -83,10 +83,9 @@ jobs:
             . venv/bin/activate
             nvm use default
             cd fec
-            ./manage.py compress -f
-            cd ..
             webpack
             DJANGO_SETTINGS_MODULE=fec.settings.production python manage.py collectstatic --noinput -v 0
+            DJANGO_SETTINGS_MODULE=fec.settings.production python manage.py compress -f
             ./manage.py test
             npm run test-single
 
