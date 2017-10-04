@@ -11,7 +11,7 @@ TEMPLATE_DEBUG = False
 # TODO(jmcarp) Update after configuring DNS
 ALLOWED_HOSTS = ['*']
 
-COMPRESS_ENABLED = True
+COMPRESS_ENABLED = False
 COMPRESS_OFFLINE = True
 
 try:

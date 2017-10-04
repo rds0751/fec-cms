@@ -7,7 +7,7 @@ for t in TEMPLATES:
     t.setdefault('OPTIONS', {})
     t['OPTIONS']['debug'] = True
 
-COMPRESS_ENABLED = True
+COMPRESS_ENABLED = False
 COMPRESS_OFFLINE = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
