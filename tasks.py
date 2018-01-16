@@ -75,6 +75,8 @@ DEPLOY_RULES = (
     ('prod', _detect_prod),
     ('stage', lambda _, branch: branch.startswith('release')),
     ('dev', lambda _, branch: branch == 'develop'),
+    # Change below to deploy desired feature branch
+    ('feature', lambda _, branch: branch == 'feature/deploy-audit-search'),
 )
 
 
