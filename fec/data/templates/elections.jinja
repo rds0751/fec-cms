@@ -21,7 +21,7 @@
         </span>
       </div>
     {% else %}
-      <h1 class="entity__name">{{ state|fmt_state_full }} -
+      <h1 class="entity__name">{{ cycle }} {{ state|fmt_state_full }} -
       {% if district %}
         House District {{ district | strip_zero_pad }}
       {% else %}
