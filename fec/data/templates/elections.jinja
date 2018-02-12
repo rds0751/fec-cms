@@ -21,7 +21,7 @@
         </span>
       </div>
     {% else %}
-      <h1 class="entity__name">{{ cycle }} {{ state|fmt_state_full }} -
+      <h1 class="entity__name">{{ state|fmt_state_full }} -
       {% if district %}
         House District {{ district | strip_zero_pad }}
       {% else %}
@@ -30,7 +30,7 @@
       </h1>
       <div class="heading--section">
         <span class="t-data t-bold">
-          Compare candidates for this office
+         {{ cycle }} | {{ office }}
         </span>
       </div>
     {% endif %}
@@ -47,7 +47,7 @@
             tabindex="0"
             aria-controls="panel1"
             href="#section-1"
-            >Election data and compliance summary</a>
+            >Election data and reporting deadlines</a>
         </li>
         <li class="side-nav__item" role="presentation">
           <a
