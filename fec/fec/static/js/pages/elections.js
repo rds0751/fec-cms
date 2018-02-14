@@ -528,7 +528,9 @@ $(document).ready(function() {
       .object()
       .value();
 
-    var incumbents = response.results.filter(result=>result.incumbent_challenge_full=='Incumbent');
+    var incumbents = response.results.filter( function(result) {
+      return result.incumbent_challenge_full=='Incumbent';
+    });
     var $election_summary_results = $('.election-summary');
     var summary = {
       incumbent_name: incumbents[0].candidate_name,
