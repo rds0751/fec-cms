@@ -27,7 +27,17 @@
 
   .card__image__container {
     @include clearfix();
-    background-color: $primary;
+    /*background-color: $primary;*/
+  }
+  .card__icon {
+    &.i-checklist {
+      @include u-icon-bg($checklist, $primary);
+      background-size: 100%;
+    }
+    &.i-election {
+      @include u-icon-bg($election, $primary);
+      background-size: 65%;
+    }
   }
 }
 
