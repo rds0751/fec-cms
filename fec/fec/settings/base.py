@@ -165,10 +165,9 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', get_random_string(50))
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
-    # Be sure to set the DATABASE_URL environment variable on your local
-    # development machine so that the local database can be connected to.
-    'default': dj_database_url.config()
-}
+    'default': dj_database_url.config(
+        default='postgres://gyhjwabgbkyvkr:85dcd7aa109fe7ffc8feff5fc4d3d8e77ac552c12cc1abeb8d7843cd41cbaefd@ec2-107-22-238-186.compute-1.amazonaws.com:5432/d5bnog7nbn0l7k',
+        conn_max_age=600)}
 
 
 # Internationalization
