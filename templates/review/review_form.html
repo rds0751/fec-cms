@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Create review" %}{% endblock %}
+
+{% block content %}
+    <div id="contact-page" class="container">
+    	<div class="bg">
+	    	<div class="row">    		
+	    		<div class="col-sm-12">    	
+
+    <h2 class="title text-center">{% trans "Create review" %}</h2>		   			
+						
+				</div>			 		
+			</div>    	
+    		<div class="row">  	
+    			<div class="col-sm-2">
+    				
+    			</div>
+	    		<div class="col-sm-8">
+	 
+    <form method="post" action=".">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+       <input type="submit" class="btn btn-defalt add-to-cart" style="font-weight:bolder;font-size:20px;float:right;" value="{% trans "Save" %}" />
+    </form>
+    	</div>
+	    		</div>	</div>  
+    	</div>	
+    </div>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'blog/base.html' %}
+{% load static %} 
+
+{% block breadcrumb %}
+{{ block.super }}
+{% endblock %}
+
+{% block content %}
+<section>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3" >
+            <div class="left-sidebar">
+                <h2>Category</h2>
+                <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+
+
+                            <h4 class="panel-title"><a href="{% url 'blog:post-archive' %}">Archive</a></h4>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><a href="{% url 'blog:post-archive' %}">2017</a></h4>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><a href="{% url 'blog:post-archive' %}">2018</a></h4>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><a href="{% url 'blog:post-archive' %}">2019</a></h4>
+                        </div>
+                    </div>
+                </div><!--/category-products-->
+                <div class="shipping text-center"><!--shipping-->
+                    <img src="images/home/shipping.jpg" alt="" />
+                </div>
+                {% if post_tags %}
+  <div class="portlet">
+    <h3>Tags</h3>
+
+    <ul>
+      {% for post_tag in post_tags %}
+        <li><a href="{% url 'blog:post-list-by-tag' post_tag.slug %}">{{ post_tag.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+
+            </div>
+
+        </div>
+        <h2 class="title text-center">Latest From our Blog</h2>
+                
+  
+        <div class="col-sm-9" style="margin-bottom:30px;">
+        	<div class="row">
+        		      {% for post in posts %}
+        		<div class="col-sm-12">
+            <div class="blog-post-area">
+                <div class="single-blog-post">
+                    <a href="{% url 'blog:post-detail' slug=post.slug %}"> <h3>{{ post.title }}</h3></a>
+                    <div class="post-meta">
+                        <ul>
+                            <li><i class="fa fa-clock-o"></i>{{ post.published_date|date:"F j, Y" }}</li>
+                        </ul>
+                    </div>
+    
+                    <p>{{ post.snippet|safe }}</p>
+                     <a class="btn btn-primary" href="{% url 'blog:post-detail' slug=post.slug %}">Read more &rarr;</a>
+
+                </div>
+                
+        </div>
+    </div>
+    {% empty %}
+<h1>Blog</h1>
+
+    </div>
+{% endfor %} 
+
+
+</div>
+</div>
+</section>
+
+{% include 'partials/_pagination.html' with url_name='blog:post-list' %}
+
+{% endblock content %}
