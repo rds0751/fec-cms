@@ -60,8 +60,6 @@ Paginator==0.5.1
 Pillow==5.2.0
 post==2019.4.13
 promise==2.2.1
-psycopg2==2.7.5
-psycopg2-binary==2.7.5
 public==2019.4.13
 pycparser==2.19
 pydotplus==2.0.2
