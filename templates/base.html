@@ -26,11 +26,14 @@
   <script type="text/javascript" src="{% static '/scripts/plugins-activate.js' %}"></script>
 </head><!--/head-->
 
-<body>
+<body >
+  <div class="row" style="
+  padding-right: 10%;
+  padding-left: 10%;">
   {% include 'partials/_navbar.html' %}
   
   {% block content %} {% endblock %}
-  
+  </div>
 {% include 'partials/_footer.html' %}
 </body>
 

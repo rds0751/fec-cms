@@ -8,8 +8,6 @@
 body {
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
-  padding-right: 10%;
-  padding-left: 10%;
 }
 .btn-xl {
   padding: 20px 40px;
@@ -567,5 +565,99 @@ footer.footer p.small a:hover, footer.footer p.small a.focus {
     text-decoration: none;
     background-color: hsla(0,0%,100%,.7); 
     max-width: 1071px;
+}
+
+@media only screen and (max-width: 600px) {
+  #Banner {
+    width: 100%;
+    margin-bottom: 50px;
+    margin-top: 275px; 
+    max-height: 300px;
+    min-height: 250px;
+    background: rgba(255,255,255,255);
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #Banner {
+    width: 100%;
+    margin-bottom: 50px;
+    margin-top: 200px; 
+    max-height: 300px;
+    min-height: 250px;
+    background: rgba(255,255,255,255);
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #About {
+    left: 0px;
+    width: 100%;
+    padding-top: 0px;
+    margin-top: 150px;
+    background: rgba(249,249,249,255);
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgb(249, 249, 249);
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #About {
+    left: 0px;
+    width: 100%;
+    padding-top: 0px;
+    background: rgba(249,249,249,255);
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgb(249, 249, 249);
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  #footer-info {
+    padding-left: 5%; padding-top: 7%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #footer-info {
+    padding-left: 35%; padding-top: 7%;
+  }
 }
 /* Styles Begins */
