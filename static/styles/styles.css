@@ -657,7 +657,19 @@ footer.footer p.small a:hover, footer.footer p.small a.focus {
 
 @media only screen and (min-width: 600px) {
   #footer-info {
-    padding-left: 35%; padding-top: 7%;
+    padding-left: 32%; padding-top: 7%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #footer-1 {
+    padding-left: 5%; padding-top: 7%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #footer-1 {
+    padding-left: 26%; padding-top: 7%;
   }
 }
 /* Styles Begins */
