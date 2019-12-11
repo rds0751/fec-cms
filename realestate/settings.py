@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'core.apps.CoreConfig',
     'reviews',
+    'import_export',
+    'marketing',
 
 ]
 

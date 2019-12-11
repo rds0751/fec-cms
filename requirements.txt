@@ -13,6 +13,7 @@ botocore==1.12.212
 braintree==3.56.0
 certifi==2019.6.16
 cffi==1.12.3
+git+https://github.com/django-import-export/django-import-export.git#egg=django-import-export
 channels==2.2.0
 channels-redis==2.4.0
 chardet==3.0.4
