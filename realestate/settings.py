@@ -111,12 +111,21 @@ WSGI_APPLICATION = 'realestate.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+    'default': dj_database_url.config(
+        default='postgres://klulqduipdsrqz:8a9bf9016b9f45358a20e3fcf9228a76ed59335d36bcd95ef903c3461e6ec883@ec2-174-129-254-226.compute-1.amazonaws.com:5432/d8vmr0fcmav39n',
+        conn_max_age=600)}
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 
