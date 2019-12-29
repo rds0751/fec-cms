@@ -53,6 +53,10 @@ INSTALLED_APPS = [
     'reviews',
     'import_export',
     'marketing',
+    'apps.board',
+    'apps.core',
+    'apps.messaging',
+    'apps.social',
 
 ]
 
