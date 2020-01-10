@@ -32,10 +32,6 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'pages.apps.PagesConfig',
-    'listings.apps.ListingsConfig',
-    'realtors.apps.RealtorsConfig',
-    'accounts.apps.AccountsConfig',
-    'contacts.apps.ContactsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,8 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.admindocs',
     'ckeditor_uploader',
     'blog.apps.BlogConfig',
-    'core.apps.CoreConfig',
-    'reviews',
+    'core1.apps.CoreConfig',
     'import_export',
     'marketing',
     'apps.board',
@@ -118,18 +113,18 @@ WSGI_APPLICATION = 'realestate.wsgi.application'
 
 import dj_database_url
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default='postgres://klulqduipdsrqz:8a9bf9016b9f45358a20e3fcf9228a76ed59335d36bcd95ef903c3461e6ec883@ec2-174-129-254-226.compute-1.amazonaws.com:5432/d8vmr0fcmav39n',
-        conn_max_age=600)}
-
-
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+#     'default': dj_database_url.config(
+#         default='postgres://klulqduipdsrqz:8a9bf9016b9f45358a20e3fcf9228a76ed59335d36bcd95ef903c3461e6ec883@ec2-174-129-254-226.compute-1.amazonaws.com:5432/d8vmr0fcmav39n',
+#         conn_max_age=600)}
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 
 
@@ -145,6 +140,42 @@ DATABASES = {
 #     }
 # }
 
+# AUTHENTICATION CONFIGURATION
+# ---
+AUTHENTICATION_BACKENDS = [
+    # allauth authentication
+    'allauth.account.auth_backends.AuthenticationBackend',
+    # Still needed for Django Admin
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+# Logged in users redirected here if they view login/signup pages
+LOGIN_REDIRECT_URL = 'board:create'
+
+
+# DJANGO-ALLAUTH CONFIGURATION
+# ---
+INSTALLED_APPS += ['allauth',
+                   'allauth.account',
+                   'allauth.socialaccount'
+                   # 'allauth.socialaccount.providers.google'
+                   ]
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_USER_MODEL_USERNAME_FIELD = 'username'
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+ACCOUNT_FORMS = {
+    'login': 'apps.core.forms.MarketLoginForm',
+    'signup': 'apps.core.forms.MarketSignupForm',
+}
+# We use a custom signup form but this is an integrated way to customize the behavior afterward
+ACCOUNT_SIGNUP_FORM_CLASS = 'apps.social.forms.UserProfileForm'
+# Don't display the logout confirmation
+ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+# User display value is name from the associated profile
+ACCOUNT_USER_DISPLAY = lambda user: user.profile.fname
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

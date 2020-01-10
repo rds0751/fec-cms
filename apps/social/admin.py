@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from market.apps.social.models import (Review,
+from apps.social.models import (Review,
                                        SocialProfile)
 
 

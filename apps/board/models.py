@@ -4,10 +4,9 @@ from django.urls import reverse
 
 from django_extensions.db.models import (ActivatorModel,
                                          TimeStampedModel)
-from djgeojson.fields import PointField
 from tagulous.models import TagField
 
-from market.apps.core.models import (RandomSlugModel,
+from apps.core.models import (RandomSlugModel,
                                      UserProfile)
 
 
@@ -56,7 +55,6 @@ class Post(RandomSlugModel, TimeStampedModel):
     unit = models.CharField(max_length=80, choices=UNIT_CHOICES, default='each')
 
     # location = models.CharField(max_length=5)
-    location = PointField()
 
     def get_absolute_url(self):
         return reverse('board:detail', kwargs={'slug': self.slug})

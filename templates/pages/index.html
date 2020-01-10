@@ -1,77 +1,100 @@
 {% extends 'base.html' %}
   {% load static %}
   {% block content %}
-  <header class="py-5 mb-5 px-3 px-md-none">
+  <header>
     <div class="container px-0">
-      <div class="row pt-4">
+      <div class="row">
         <div class="col-lg-5">
           <h1 class="heading-primary">
             Swap items and services, easily and quickly
           </h1>
-          <p class="heading-info mt-4">
-            Our online marketplace lets you swap almost anything. <br>It's free to use!
+          <p class="heading-info">
+            Our online marketplace lets you swap almost anything. <br>It's free to use!<br><br>Coming soon.
+            <br><span class="heading-info-secondary">It's quick and easy.</span>
           </p>
-          <p class="heading-info mt-4">
-            Coming soon.
-          </p>
-          <form action="/contact/" method="post">
-            {% csrf_token %}
-          <div class="input-group mb-3 mt-5 col-md-11 pl-0">
-            <input type="email" class="form-control shadow py-4" placeholder="Email me when it is ready"
-              aria-label="Recipient's Email" name="email" aria-describedby="button-addon2">
-            <div class="input-group-append">
-              <button class="btn shadow px-4" type="submit" id="button-addon2">SUBSCRIBE</button>
-            </div>
-          </div>
-        </form>
         </div>
         <div class="col-lg-7 mt-md-none">
           <picture>
-            <source srcset="{% static '/assets/imgs/swaprs-illustration04.webp' %}" type="image/webp">
-            <source srcset="{% static '/assets/imgs/swaprs-illustration04.png' %}" type="image/png">
-            <img width="100%" class="col-img  aos-animate" src="{% static '/assets/imgs/swaprs-illustration04.png' %}"
+            <source srcset="/static/assets/imgs/Swaprs-illustration04.webp" type="image/webp">
+            <source srcset="/static/assets/imgs/Swaprs-illustration04.png" type="image/png">
+            <img width="100%" class="col-img  aos-animate" src="/static/assets/imgs/Swaprs-illustration04.png"
               alt="Improve Your in-Store Experience">
           </picture>
         </div>
       </div>
+      <div class="container pl-0">
+        <form method="POST" action="/accounts/signup/">
+          {% csrf_token %}
+          <div class="row pl-3">
+            <div class="form-group-1">
+              <div class="group">
+                <input type="text" name="fname" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>First Name</label>
+              </div>
+              <div class="group">
+                <input type="email" name="email" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Email</label>
+              </div>
+            </div>
+            <div class="form-group-2">
+              <div class="group">
+                <input type="text" name="lname" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Last Name</label>
+              </div>
+              <div class="group">
+                <input type="password" name="password1" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Password</label>
+              </div>
+            </div>
+          </div>
+          <button class="btn shadow px-4 btn-primary-cust" type="submit">CREATE ACCOUNT</button>
+        </form>
+      </div>
     </div>
   </header>
 
-  <main id="about" class="py-5 bg-light px-3 px-md-none">
-    <h1 class="mt-4 text-center">Learn more about
+  <main class="bg-light">
+    <h1 class="text-center mb-0">Learn more about
       <span class="mx-2">
         <picture>
-          <source srcset="{% static '/assets/imgs/swaprslogo_mid_2x.webp' %}" type="image/webp">
-          <source srcset="{% static '/assets/imgs/swaprslogo_mid@2x.png' %}" type="image/png">
-          <img height="60" class="col-img  aos-animate" src="{% static '/assets/imgs/swaprslogo_mid@2x.png' %}"
+          <source srcset="/static/assets/imgs/SwaprsLogo_mid_2x.webp" type="image/webp">
+          <source srcset="/static/assets/imgs/SwaprsLogo_mid@2x.png" type="image/png">
+          <img height="78" class="col-img  aos-animate" src="/static/assets/imgs/SwaprsLogo_mid@2x.png"
             alt="Improve Your in-Store Experience">
         </picture>
       </span>
       below</h1>
 
-    <div class="container my-5 py-5 px-0">
-      <div class="row pb-5">
-        <div class="col-lg-6 align-self-end mb-4 pr-4">
+    <div class="container px-0">
+      <div class="row">
+        <div class="col-lg-6 align-self-end mb-1 pr-3">
           <picture class="">
-            <source srcset="{% static '/assets/imgs/swaprs-items.webp' %}" type="image/webp">
-            <source srcset="{% static '/assets/imgs/swaprs-items.png' %}" type="image/png">
-            <img width="100%" class="col-img" src="{% static '/assets/imgs/swaprs-items.png' %}"
+            <source srcset="/static/assets/imgs/Swaprs-items.webp" type="image/webp">
+            <source srcset="/static/assets/imgs/Swaprs-items.png" type="image/png">
+            <img width="100%" class="col-img" src="/static/assets/imgs/Swaprs-items.png"
               alt="Improve Your in-Store Experience">
           </picture>
         </div>
         <div class="col-lg-6">
           <h1 class="heading-primary">About</h1>
-          <p class="mt-4 pt-3">Swaprs is an online marketplace that makes it easy, quick and effective to swap virtually
+          <p class="mb-0">Swaprs is an online marketplace that makes it easy, quick and effective to swap virtually
             all items and services. Simply upload stuff you are willing to give, discover what people are willing to
-            offer in return, and send or receive ‘swap requests' with other users.</p>
-          <p class="pt-2">In the UK alone, 300,000 tonnes of wearable clothing, 22 million small items of furniture and
+            offer in return, and send or receive ‘swap requests' with other users.<br><br>In the UK alone, 300,000
+            tonnes of wearable clothing, 22 million small items of furniture and
             28 million toys are thrown away each year. This is absurd. Our mission is to get people to share more and
-            keep useful stuff away from landﬁlls. </p>
-          <p class="pt-2">We're launching soon and would love your support to help us create a better and greener
+            keep useful stuff away from landﬁlls. <br><br>We're launching soon and would love your support to help us
+            create a better and greener
             economy. Drop us your email so we can let you know when we launch!</p>
         </div>
       </div>
-      
       <div class="main-form mx-auto text-center">
         <form action="/contact/" method="post">
           {% csrf_token %}
@@ -84,11 +107,12 @@
         </div>
       </form>
 
-        <div class="pt-5">
+
+        <div style="margin-top: 100px; padding-bottom:110px;">
           <picture>
-            <source srcset="{% static '/assets/imgs/swaprslogo_mid_2x.webp' %}" type="image/webp">
-            <source srcset="{% static '/assets/imgs/swaprslogo_mid@2x.png' %}" type="image/png">
-            <img height="80" class="col-img  aos-animate" src="{% static '/assets/imgs/swaprslogo_mid@2x.png' %}"
+            <!-- <source srcset="/static/assets/images/webp/section_2.webp" type="image/webp"> -->
+            <source srcset="/static/assets/imgs/SwaprsLogo_mid@2x.png" type="image/png">
+            <img height="96px" class="col-img  aos-animate" src="/static/assets/imgs/SwaprsLogo_mid@2x.png"
               alt="Improve Your in-Store Experience">
           </picture>
         </div>
@@ -96,4 +120,4 @@
       </div>
     </div>
   </main>
-{% endblock %}
+  {% endblock %}

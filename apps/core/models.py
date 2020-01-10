@@ -17,18 +17,19 @@ class UserProfile(RandomSlugModel):
     registration for each user. All relations to a User are through
     this model to maintain separation from the authentication backend.
     """
-    ACCOUNT_TYPE_CHOICES = (
-        ('0', "I'm a buyer"),
-        ('1', "I'm a seller"),
-    )
+    # ACCOUNT_TYPE_CHOICES = (
+    #     ('0', "I'm a buyer"),
+    #     ('1', "I'm a seller"),
+    # )
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')
 
-    type = models.CharField(max_length=1, choices=ACCOUNT_TYPE_CHOICES, default='0')
-    name = models.CharField('name', max_length=200)
+    # type = models.CharField(max_length=1, choices=ACCOUNT_TYPE_CHOICES, default='1')
+    fname = models.CharField('name', max_length=200, null=True, blank=True)
+    lname = models.CharField('name', max_length=200, null=True, blank=True)
     @property
     def is_seller(self):
-        return self.type == self.ACCOUNT_TYPE_CHOICES[1][0]
+        return True
 
     def __str__(self):
         return self.name

@@ -5,15 +5,15 @@ from django.views.generic import (DetailView,
 
 from extra_views import (CreateWithInlinesView)
 
-from market.apps.board.models import Post
-from market.apps.core.mixins import (CreateWithSenderMixin,
+from apps.board.models import Post
+from apps.core.mixins import (CreateWithSenderMixin,
                                      LoginRequiredMixin,
                                      OwnerRequiredMixin,
                                      SellerRequiredMixin)
-from market.apps.core.models import UserProfile
-from market.apps.messaging.forms import (MessageForm)
-from market.apps.messaging.models import (Message)
-from market.apps.social.models import SocialProfile
+from apps.core.models import UserProfile
+from apps.messaging.forms import (MessageForm)
+from apps.messaging.models import (Message)
+from apps.social.models import SocialProfile
 
 
 # Create a new message

@@ -3,9 +3,7 @@ from django_extensions.db.models import (ActivatorModel,
                                          TimeStampedModel)
 from django.urls import reverse
 
-from djgeojson.fields import PointField
-
-from market.apps.core.models import (RandomSlugModel,
+from apps.core.models import (RandomSlugModel,
                                      UserProfile)
 
 
@@ -37,7 +35,6 @@ class SocialProfile(RandomSlugModel):
     bio = models.TextField(max_length=2000, blank=True)
 
     # Location to be changed here, same as in posts.
-    location = PointField()
 
     def get_absolute_url(self):
         return reverse('social:detail', kwargs={'slug': self.slug})

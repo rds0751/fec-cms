@@ -10,16 +10,16 @@ from django.views.generic import (DetailView,
                                   RedirectView,
                                   UpdateView)
 from extra_views import (CreateWithInlinesView)
-from market.apps.board.models import Post
-from market.apps.core.mixins import (CreateWithOwnerMixin,
+from apps.board.models import Post
+from apps.core.mixins import (CreateWithOwnerMixin,
                                      CreateWithReviewerMixin,
                                      CreateWithSenderMixin,
                                      OwnerRequiredMixin,
                                      SellerRequiredMixin)
-from market.apps.core.models import UserProfile
-from market.apps.social.forms import (ReviewForm,
+from apps.core.models import UserProfile
+from apps.social.forms import (ReviewForm,
                                       SocialProfileUpdateForm,)
-from market.apps.social.models import (Review,
+from apps.social.models import (Review,
                                        SocialProfile,)
 
 

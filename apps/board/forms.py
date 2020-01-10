@@ -6,7 +6,7 @@ from crispy_forms.helper import FormHelper
 
 from leaflet.forms.widgets import LeafletWidget
 
-from market.apps.board.models import Post
+from apps.board.models import Post
 
 # Form to handle the niput of images.
 class ImageHelper(FormHelper):
@@ -24,8 +24,8 @@ class ImageHelper(FormHelper):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'body', 'tags', 'price', 'unit', 'location']
-        widgets = {'location': LeafletWidget()}
+        fields = ['title', 'body', 'tags', 'price', 'unit']
+        widgets = {}
 
     # Appearance of the Form
     def __init__(self, *args, **kwargs):
@@ -39,8 +39,7 @@ class PostForm(forms.ModelForm):
                 'body',
                 'tags',
                 bootstrap.PrependedAppendedText('price', '$', 'USD'),
-                'unit',
-                'location'
+                'unit'
             ),
             bootstrap.FormActions(
                 layout.Submit('submit', 'Create post', css_class='btn btn-success'),
@@ -52,8 +51,8 @@ class PostForm(forms.ModelForm):
 class PostUpdateForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'body', 'tags', 'price', 'unit', 'location']
-        widgets = {'location': LeafletWidget()}
+        fields = ['title', 'body', 'tags', 'price', 'unit']
+        widgets = {}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -67,8 +66,7 @@ class PostUpdateForm(forms.ModelForm):
                 'body',
                 'tags',
                 bootstrap.PrependedText('price', '$'),
-                'unit',
-                'location'
+                'unit'
             ),
             bootstrap.FormActions(
                 layout.Submit('submit', 'Update post', css_class='btn btn-success'),

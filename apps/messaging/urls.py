@@ -1,6 +1,7 @@
 from django.conf.urls import url
+from django.urls import path, include
 
-from market.apps.messaging.views import (MessageCreateView,
+from apps.messaging.views import (MessageCreateView,
                                         MessageDetailView,
                                         MessageListView,
                                         )
@@ -8,7 +9,7 @@ from market.apps.messaging.views import (MessageCreateView,
 
 app_name = 'messaging'
 urlpatterns = [
-    url(r'^$', MessageListView.as_view(), name='inbox'),
-    url(r'^new/(?P<slug>[-\w]+)', MessageCreateView.as_view(), name='new'),
-    url(r'^(?P<slug>[-\w]+)/$', MessageDetailView.as_view(), name='detail'),
+    path('', MessageListView.as_view(), name='inbox'),
+    path('new/(?P<slug>[-\w]+)', MessageCreateView.as_view(), name='new'),
+    path('(?P<slug>[-\w]+)/', MessageDetailView.as_view(), name='detail'),
 ]

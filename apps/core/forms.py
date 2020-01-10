@@ -6,7 +6,7 @@ from crispy_forms import (bootstrap,
                           layout)
 from crispy_forms.helper import FormHelper
 
-from market.apps.core.models import UserProfile
+from apps.core.models import UserProfile
 
 
 class MarketLoginForm(LoginForm):
@@ -27,8 +27,10 @@ class MarketLoginForm(LoginForm):
 
 
 class MarketSignupForm(SignupForm):
-    type = forms.ChoiceField(choices=UserProfile.ACCOUNT_TYPE_CHOICES)
-    name = forms.CharField(max_length=200)
+    # type = forms.ChoiceField(choices=UserProfile.ACCOUNT_TYPE_CHOICES)
+    fname = forms.CharField(max_length=200)
+    lname = forms.CharField(max_length=200)
+
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -39,10 +41,10 @@ class MarketSignupForm(SignupForm):
             layout.Fieldset(
                 '',
                 'email',
-                'type',
-                'name',
+                # 'type',
+                'fname',
+                'lname',
                 'password1',
-                'password2',
             ),
             bootstrap.FormActions(
                 layout.Submit('submit', 'Create an account', css_class='btn btn-success'),

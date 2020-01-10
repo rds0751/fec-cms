@@ -9,7 +9,7 @@ from crispy_forms.layout import (Field,
                                  Layout,
                                  Submit)
 
-from market.apps.messaging.models import Message
+from apps.messaging.models import Message
 
 # Form through which messages can be sent.
 class MessageForm(forms.ModelForm):

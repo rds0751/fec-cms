@@ -5,8 +5,8 @@ from crispy_forms import (bootstrap,
 from crispy_forms.helper import FormHelper
 from leaflet.forms.widgets import LeafletWidget
 
-from market.apps.core.models import UserProfile
-from market.apps.social.models import (Review,
+from apps.core.models import UserProfile
+from apps.social.models import (Review,
                                        SocialProfile)
 
 
@@ -36,8 +36,8 @@ class ReviewForm(forms.ModelForm):
 class SocialProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = SocialProfile
-        fields = ['avatar', 'tagline', 'bio', 'location']
-        widgets = {'location': LeafletWidget()}
+        fields = ['avatar', 'tagline', 'bio']
+        widgets = {}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -48,8 +48,7 @@ class SocialProfileUpdateForm(forms.ModelForm):
                 '',
                 'avatar',
                 'tagline',
-                'bio',
-                'location'
+                'bio'
             ),
             bootstrap.FormActions(
                 layout.Submit('submit', 'Update profile', css_class='btn btn-success'),
@@ -63,8 +62,8 @@ class UserProfileForm(forms.Form):
 
     def signup(self, request, user):
         # Automatically create user profile for every user
-        profile = UserProfile.objects.create(user=user, type=self.cleaned_data['type'], name=self.cleaned_data['name'])
+        profile = UserProfile.objects.create(user=user, fname=self.cleaned_data['fname'])
 
         # Create an empty SocialProfile if the user is a seller
-        if profile.is_seller:
+        if True:
             SocialProfile.objects.create(owner=profile)

@@ -3,9 +3,9 @@ from django.urls import reverse
 
 from django_extensions.db.models import TimeStampedModel
 
-from market.apps.core.models import (RandomSlugModel,
+from apps.core.models import (RandomSlugModel,
                                      UserProfile)
-from market.apps.board.models import Post
+from apps.board.models import Post
 
 
 # The class for messages sent from user to user

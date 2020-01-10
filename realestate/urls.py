@@ -5,13 +5,18 @@ from django.conf.urls.static import static
 
 urlpatterns = [
 path('', include('pages.urls')),
-path('listings/', include('listings.urls')),
-path('accounts/', include('accounts.urls')),
-path('contact/', include('marketing.urls')),
+path('accounts/', include('allauth.urls')),
 path('admin/', admin.site.urls),
-path('reviews/', include('reviews.urls')),
 
 path('blog/', include(('blog.urls', 'blog'), namespace='blog')),
 path('ckeditor/', include('ckeditor_uploader.urls')),
+
+path('messaging/', include('apps.messaging.urls')),
+
+    # Social app
+path('', include('apps.social.urls')),
+
+    # Board app
+path('', include('apps.board.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
